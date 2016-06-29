@@ -16,12 +16,11 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(description = "Servlet used for the beer recommendations", urlPatterns = { "/BeerServlet" })
 public class BeerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
 	/**
 	 * Default constructor.
 	 */
 	public BeerServlet() {
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

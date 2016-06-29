@@ -1,4 +1,7 @@
 <html>
+<head>
+<title>Beer Recommender</title>
+</head>
 <body>
 
 	<h1 align='center'>Beer Selection Page</h1>
@@ -14,8 +17,7 @@
 			<option value="brown">brown</option>
 			<option value="dark">dark</option>
 			<option value="red">red</option>
-		</select> <br />
-		<br />
+		</select> <br /> <br />
 
 		<center>
 			<input type="submit" value="Select Beer Style" />
