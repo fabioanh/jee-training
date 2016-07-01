@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.adneom.training.model.BeerExpert;
 
-@WebServlet(description = "Servlet used to get the initial form for the beer recomendator", urlPatterns = {
-		"/BeerForm" })
+//@WebServlet(description = "Servlet used to get the initial form for the beer recomendator", urlPatterns = {
+//		"/BeerForm" })
 public class BeerForm extends HttpServlet {
 	/**
 	 * 

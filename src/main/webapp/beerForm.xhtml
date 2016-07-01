@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Beer Recommender</title>
+</h:head>
+<h:body>
+	<h1 align='center'>Beer Selection Page</h1>
+	<h:outputText>Select beer characteristics</h:outputText>
+	<h:form id="form">
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Color:" for="colorSelect" />
+			<h:selectOneMenu id="colorSelect">
+				<f:selectItem itemValue="" itemLabel="Select a color..." />
+				<f:selectItem itemValue="light" itemLabel="light" />
+				<f:selectItem itemValue="amber" itemLabel="amber" />
+				<f:selectItem itemValue="dark" itemLabel="dark" />
+				<f:selectItem itemValue="brown" itemLabel="brown" />
+				<f:selectItem itemValue="red" itemLabel="red" />
+			</h:selectOneMenu>
+		</h:panelGrid>
+		<h:commandButton value="Select Beer Style"/>
+	</h:form>
+</h:body>
+</html>
