@@ -13,16 +13,14 @@
 	<h:form id="form">
 		<h:panelGrid columns="2">
 			<h:outputLabel value="Color:" for="colorSelect" />
-			<h:selectOneMenu id="colorSelect">
+			<h:selectOneMenu id="colorSelect" value="#{beerBean.color}">
 				<f:selectItem itemValue="" itemLabel="Select a color..." />
-				<f:selectItem itemValue="light" itemLabel="light" />
-				<f:selectItem itemValue="amber" itemLabel="amber" />
-				<f:selectItem itemValue="dark" itemLabel="dark" />
-				<f:selectItem itemValue="brown" itemLabel="brown" />
-				<f:selectItem itemValue="red" itemLabel="red" />
+				<f:selectItems value="#{beerBean.beerColors}" var="col"
+					itemLabel="#{col}" itemValue="#{col}" />
 			</h:selectOneMenu>
 		</h:panelGrid>
-		<h:commandButton value="Select Beer Style"/>
+		<h:commandButton value="Select Beer Style"
+			action="#{beerBean.processBeerColor}" />
 	</h:form>
 </h:body>
 </html>
