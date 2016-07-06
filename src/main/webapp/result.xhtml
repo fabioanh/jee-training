@@ -8,16 +8,22 @@
 	<title>Beer Recommendations</title>
 </h:head>
 <h:body>
-	<h1 align="center">Beer Recommendations</h1>
-	<h:panelGrid rendered="#{empty beerBean.beerList}" columns="1">
-		<h:outputText value="Get a nice message from a messages bundle file!" />
-	</h:panelGrid>
-	<h:panelGrid rendered="#{not empty beerBean.beerList}" columns="1">
-		<ui:repeat value="#{beerBean.beerList}" var="beer">
-			<h:outputText value="Try #{beer}!" />
-			<br />
-		</ui:repeat>
-	</h:panelGrid>
-	<h:link outcome="beerForm" value="Back home" />
+	<ui:composition template="template/commonLayout.xhtml">
+
+		<ui:define name="content">
+			<h1 align="center">Beer Recommendations</h1>
+			<h:panelGrid rendered="#{empty beerBean.beerList}" columns="1">
+				<h:outputText
+					value="Get a nice message from a messages bundle file!" />
+			</h:panelGrid>
+			<h:panelGrid rendered="#{not empty beerBean.beerList}" columns="1">
+				<ui:repeat value="#{beerBean.beerList}" var="beer">
+					<h:outputText value="Try #{beer}!" />
+					<br />
+				</ui:repeat>
+			</h:panelGrid>
+			<h:link outcome="beerForm" value="Back home" />
+		</ui:define>
+	</ui:composition>
 </h:body>
 </html>
