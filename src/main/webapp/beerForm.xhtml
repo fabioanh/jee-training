@@ -5,22 +5,36 @@
 	xmlns:h="http://java.sun.com/jsf/html">
 
 <h:head>
-	<title>Beer Recommender</title>
+	<title>${msg['beer.form.title']}</title>
 </h:head>
 <h:body>
-	<h1 align='center'>Beer Selection Page</h1>
-	<h:outputText>Select beer characteristics</h:outputText>
+	<h1 align='center'>${msg['beer.form.header']}</h1>
+	<h:outputText>${msg['beer.form.selectbeerfeatures']}</h:outputText>
 	<h:form id="form">
 		<h:panelGrid columns="2">
-			<h:outputLabel value="Color:" for="colorSelect" />
+			<h:outputLabel value="${msg['beer.form.colorlabel']}:"
+				for="colorSelect" />
 			<h:selectOneMenu id="colorSelect" value="#{beerBean.color}">
-				<f:selectItem itemValue="" itemLabel="Select a color..." />
+				<f:selectItem itemValue=""
+					itemLabel="${msg['beer.form.selectacoloritem']}..." />
 				<f:selectItems value="#{beerBean.beerColors}" var="col"
 					itemLabel="#{col}" itemValue="#{col}" />
 			</h:selectOneMenu>
 		</h:panelGrid>
-		<h:commandButton value="Select Beer Style"
+		<h:commandButton value="${msg['beer.form.selectbutton']}"
 			action="#{beerBean.processBeerColor}" />
+	</h:form>
+
+	<h:form>
+		<h:panelGrid columns="2">
+			<h:outputLabel value="${msg['footer.picklanguage']}:"
+				for="languageSelect" />
+			<h:selectOneMenu id="languageSelect" value="#{language.localeCode}"
+				onchange="submit()"
+				valueChangeListener="#{language.countryLocaleCodeChanged}">
+				<f:selectItems value="#{language.countryLanguages}" />
+			</h:selectOneMenu>
+		</h:panelGrid>
 	</h:form>
 </h:body>
 </html>
