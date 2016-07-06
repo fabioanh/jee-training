@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
 	<title>${msg['beer.form.title']}</title>
@@ -14,10 +15,13 @@
 			<h1 align='center'>${msg['beer.form.header']}</h1>
 			<h:outputText>${msg['beer.form.selectbeerfeatures']}</h:outputText>
 			<h:form id="form">
+				<p:messages id="msgs" />
 				<h:panelGrid columns="2">
 					<h:outputLabel value="${msg['beer.form.colorlabel']}:"
 						for="colorSelect" />
-					<h:selectOneMenu id="colorSelect" value="#{beerBean.color}">
+					<h:selectOneMenu id="colorSelect"
+						label="${msg['beer.form.colorlabel']}" value="#{beerBean.color}">
+						<f:validateRequired />
 						<f:selectItem itemValue=""
 							itemLabel="${msg['beer.form.selectacoloritem']}..." />
 						<f:selectItems value="#{beerBean.beerColors}" var="col"

@@ -2,10 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>Beer Recommendations</title>
+	<title>${msg['result.title']}</title>
 </h:head>
 <h:body>
 	<ui:composition template="template/commonLayout.xhtml">
@@ -15,12 +16,16 @@
 			<h:panelGrid rendered="#{empty beerBean.beerList}" columns="1">
 				<h:outputText value="${msg['result.emptyresults']}" />
 			</h:panelGrid>
-			<h:panelGrid rendered="#{not empty beerBean.beerList}" columns="1">
-				<ui:repeat value="#{beerBean.beerList}" var="beer">
-					<h:outputText value="${msg['result.try']} #{beer}!" />
-					<br />
-				</ui:repeat>
-			</h:panelGrid>
+			<p:dataTable var="beer" value="#{beerBean.beerList}"
+				rendered="#{not empty beerBean.beerList}">
+				<p:column headerText="Name">
+					<h:outputText value="#{beer.name}" />
+				</p:column>
+
+				<p:column headerText="Brewery">
+					<h:outputText value="#{beer.brewery}" />
+				</p:column>
+			</p:dataTable>
 			<h:link outcome="beerForm" value="${msg['result.backhome']}" />
 		</ui:define>
 	</ui:composition>

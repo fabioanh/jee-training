@@ -6,12 +6,13 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 
 import com.adneom.training.model.BeerExpert;
+import com.adneom.training.model.data.Beer;
 
 @ManagedBean
 public class BeerBean {
 
 	private String color;
-	private List<String> beerList;
+	private List<Beer> beerList;
 	private List<String> beerColors;
 
 	public BeerBean() {
@@ -31,11 +32,11 @@ public class BeerBean {
 		this.color = color;
 	}
 
-	public List<String> getBeerList() {
+	public List<Beer> getBeerList() {
 		return beerList;
 	}
 
-	public void setBeerList(List<String> beerList) {
+	public void setBeerList(List<Beer> beerList) {
 		this.beerList = beerList;
 	}
 
@@ -49,7 +50,7 @@ public class BeerBean {
 
 	public String processBeerColor() {
 		BeerExpert be = new BeerExpert();
-		beerList = be.getBrands(color);
-		return "result";
+		beerList = be.getBeersByColor(color);
+		return "resultTable";
 	}
 }

@@ -10,6 +10,7 @@ public class BeerExpert {
 	private List<Beer> beers;
 
 	public BeerExpert() {
+		beers = new ArrayList<>();
 		beers.add(new Beer("Jack Amber", "Jack's Beer Inc."));
 		beers.add(new Beer("Red Moose", "The Jungle Brewery"));
 		beers.add(new Beer("Wake n'Bake", "Terrapin Beer Company"));
@@ -32,7 +33,7 @@ public class BeerExpert {
 		return (brands);
 	}
 
-	public List<Beer> getBeer(String color) {
+	public List<Beer> getBeersByColor(String color) {
 		switch (color) {
 		case "amber":
 		case "red":
