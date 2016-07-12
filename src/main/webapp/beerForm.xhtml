@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>${msg['beer.form.title']}</title>
+</h:head>
+<h:body>
+	<ui:composition template="template/commonLayout.xhtml">
+
+		<ui:define name="content">
+			<h1 align='center'>${msg['beer.form.header']}</h1>
+			<h:outputText>${msg['beer.form.selectbeerfeatures']}</h:outputText>
+			<h:form id="form">
+				<p:messages id="msgs" />
+				<h:panelGrid columns="2">
+					<h:outputLabel value="${msg['beer.form.colorlabel']}:"
+						for="colorSelect" />
+					<h:selectOneMenu id="colorSelect"
+						label="${msg['beer.form.colorlabel']}" value="#{beerBean.color}">
+						<f:validateRequired />
+						<f:selectItem itemValue=""
+							itemLabel="${msg['beer.form.selectacoloritem']}..." />
+						<f:selectItems value="#{beerBean.beerColors}" var="col"
+							itemLabel="#{col}" itemValue="#{col}" />
+					</h:selectOneMenu>
+				</h:panelGrid>
+				<h:commandButton value="${msg['beer.form.selectbutton']}"
+					action="#{beerBean.processBeerColor}" />
+			</h:form>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>

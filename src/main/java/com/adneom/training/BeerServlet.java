@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class BeerServlet
  */
 // Use Comment or Uncomment when 
-@WebServlet(description = "Servlet used for the beer recommendations", urlPatterns = { "/BeerServlet" })
+//@WebServlet(description = "Servlet used for the beer recommendations", urlPatterns = { "/BeerServlet" })
 public class BeerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	

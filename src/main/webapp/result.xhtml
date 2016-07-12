@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Beer Recommendations</title>
+</h:head>
+<h:body>
+	<ui:composition template="template/commonLayout.xhtml">
+
+		<ui:define name="content">
+			<h1 align="center">${msg['result.header']}</h1>
+			<h:panelGrid rendered="#{empty beerBean.beerList}" columns="1">
+				<h:outputText value="${msg['result.emptyresults']}" />
+			</h:panelGrid>
+			<h:panelGrid rendered="#{not empty beerBean.beerList}" columns="1">
+				<ui:repeat value="#{beerBean.beerList}" var="beer">
+					<h:outputText value="${msg['result.try']} #{beer}!" />
+					<br />
+				</ui:repeat>
+			</h:panelGrid>
+			<h:link outcome="beerForm" value="${msg['result.backhome']}" />
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
