@@ -1,6 +1,7 @@
 .metadata
 .settings/
 .loadpath
+.tern-project
 
 # Eclipse Core
 .project
