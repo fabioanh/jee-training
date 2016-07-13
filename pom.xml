@@ -56,13 +56,18 @@
 			<artifactId>ejb-api</artifactId>
 			<version>3.0</version>
 		</dependency>
-		<!-- WildFly ejb dependency
+		<!-- JSR 330: Dependency Injection -->
 		<dependency>
-			<groupId>org.wildfly</groupId>
-			<artifactId>wildfly-ejb3</artifactId>
-			<version>10.0.0.Final</version>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
 		</dependency>
-		 -->
+		<!-- JAVA EE api -->
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>7.0</version>
+		</dependency>
 
 	</dependencies>
 	<build>
