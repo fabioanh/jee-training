@@ -3,13 +3,18 @@ package com.adneom.training.managedbean;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 
+import com.adneom.training.ejb.BeerOracle;
 import com.adneom.training.model.BeerExpert;
 import com.adneom.training.model.data.Beer;
 
 @ManagedBean
 public class BeerBean {
+	
+	@EJB
+	private BeerOracle beerOracle;
 
 	private String color;
 	private List<Beer> beerList;
@@ -49,8 +54,7 @@ public class BeerBean {
 	}
 
 	public String processBeerColor() {
-		BeerExpert be = new BeerExpert();
-		beerList = be.getBeersByColor(color);
+		beerList = beerOracle.getBeersByColor(color);
 		return "resultTable";
 	}
 }
